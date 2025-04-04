@@ -57,4 +57,29 @@ export default function Home() {
         }}
         onError={(e) => {
           console.error('PayPal SDK failed to load:', e);
-          // Optionally, handle error state here\n        }}\n      />\n\n      {/* Render modular sections instead of inline markup */}\n      <HeroSection scrollToPricing={scrollToPricing} />\n      <TargetAudienceSection />\n      <CourseBreakdownSection />\n      <IncludedItemsSection />\n      <WhyLearnSection />\n      <PricingSection\n        name={name}\n        email={email}\n        setName={setName}\n        setEmail={setEmail}\n        error={error}\n        submitting={submitting}\n        isPayPalReady={isPayPalReady}\n        fullPaymentFormRef={fullPaymentFormRef}\n        handleFullPaymentSubmit={handleFullPaymentSubmit}\n      />\n      <TestimonialsSection />\n      <Footer />\n    </div>\n  );\n}\n```\n\n### Key Updates\n\n1. **Modular Components:** Instead of embedding all the HTML directly in this file, the landing page is now composed of modular components (like `HeroSection`, `TargetAudienceSection`, etc.) which are imported from your components folder. This improves readability and maintainability.\n\n2. **Optimized Scroll Function:** The `scrollToPricing` function is now wrapped in `useCallback` to prevent unnecessary re-creations during re-renders.\n\n3. **Retained Integrations:** Both Airtable and PayPal integrations are still active. The code continues to use the `useFormSubmission` and `usePayPalIntegration` hooks as before, ensuring that your data submission and payment handling logic remain intact.\n\nFeel free to modify the modular components if you need further customization."
+          // Optionally, handle error state here
+        }}
+      />
+
+      {/* Render modular sections instead of inline markup */}
+      <HeroSection scrollToPricing={scrollToPricing} />
+      <TargetAudienceSection />
+      <CourseBreakdownSection />
+      <IncludedItemsSection />
+      <WhyLearnSection />
+      <PricingSection
+        name={name}
+        email={email}
+        setName={setName}
+        setEmail={setEmail}
+        error={error}
+        submitting={submitting}
+        isPayPalReady={isPayPalReady}
+        fullPaymentFormRef={fullPaymentFormRef}
+        handleFullPaymentSubmit={handleFullPaymentSubmit}
+      />
+      <TestimonialsSection />
+      <Footer />
+    </div>
+  );
+}
